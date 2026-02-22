@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluation Result</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 700px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #444;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            background: #f4f6f9;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .score-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .back-btn {
+            display: block;
+            margin: 25px auto 0;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .back-btn:hover {
+            background: #43a047;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>📊 Evaluation Result</h2>
+    <p><strong>File:</strong> {{ filename }}</p>
+
+    <h3>📘 Theory Answers</h3>
+    <ul>
+        {% for ans in theory_answers %}
+            <li>{{ ans }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Theory Score:</strong> {{ theory_score }} / {{ theory_max }}</p>
+
+    <h3>📐 Math / Numerical Answers</h3>
+    <ul>
+        {% for ans in math_answers %}
+            <li>{{ ans }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Math Score:</strong> {{ math_score }} / {{ math_max }}</p>
+
+    <div class="score-box">
+        🎯 Total Score: {{ total_score }} / {{ theory_max + math_max }}
+    </div>
+
+    <a href="/" class="back-btn">⬅ Upload Another</a>
+</div>
+
+</body>
+</html>
