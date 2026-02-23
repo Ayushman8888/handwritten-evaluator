@@ -1,6 +1,6 @@
 Flask
 gunicorn
-easyocr
-numpy
+pytesseract
 opencv-python
 Pillow
+numpy
