@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import os
-import easyocr
 import cv2
 
 from ocr_test import (
